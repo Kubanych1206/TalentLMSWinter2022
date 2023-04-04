@@ -9,12 +9,12 @@ public class DemoClass {
     public void DemoBeforeMethod(){
         System.out.println("Demo before Method");
     }
-    @Test
+    @Test (groups = "group1")
     public void demoTest1(){
         System.out.println("Demo test1");
     }
 
-    @Test
+    @Test (groups = "group2")
     public void demoTest2(){
         System.out.println("Demo test2");
     //    Assert.assertEquals("100", "101");
@@ -45,6 +45,26 @@ public class DemoClass {
     @AfterTest
     public void DemoAfterTest(){
         System.out.println("Demo After test");
+    }
+
+    @BeforeSuite
+    public void DemoBeforeSuite(){
+        System.out.println("Demo Before Suite");
+    }
+
+    @AfterSuite
+    public void DemoAfterSuite(){
+        System.out.println("Demo After Suite");
+    }
+
+    @BeforeGroups (groups = "group1")
+    public void DemoBeforeGroups(){
+        System.out.println("Demo Before Group1");
+    }
+
+    @AfterGroups (groups = "group2")
+    public void DemoAfterGroups(){
+        System.out.println("Demo After Group2");
     }
 
 }

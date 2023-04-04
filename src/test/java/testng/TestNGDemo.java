@@ -5,29 +5,69 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TestNGDemo {
+
     @Test
     public void createNewUserTest(){
-        User firstuser = new User("John",30);
-        Assert.assertNotNull(firstuser);
+        User firstUser = new User("John", 30);
+        Assert.assertNotNull(firstUser);
     }
 
-    @Test(dependsOnMethods = "createNewUserTest")
-    public void loginTest() {
+    @Test (dependsOnMethods = "createNewUserTest")
+    public void loginTest(){
         Assert.assertTrue(true);
     }
 
-    @DataProvider(name = "inputValues")
+   @DataProvider(name = "inputValues")
     public Object[][] getInputValues(){
-        return new Object[][] {
-                {"john@gmail.com","validPass"},
-                {"johngmail.com","validPass"},
-                {"john@gmail.com","invalidPass"}
+        return new Object[][]{
+                {"john@gmail.com", "ValidPass"},
+                {"johngmail.com", "ValidPass"},
+                {"john@gmail.com","InvalidPass"}
         };
-    }
+   }
 
-    @Test(dataProvider = "inputValues")
-    public void testLoginFun(String userName, String password){
-        System.out.println(userName + " " + password);
-    }
+
+   @Test(dataProvider = "inputValues")
+    public void testLoginFunc(String userName, String password){
+       System.out.println(userName + password);
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @Test
+//    public void createNewUserTest(){
+//        User firstuser = new User("John",30);
+//        Assert.assertNotNull(firstuser);
+//    }
+//
+//    @Test(dependsOnMethods = "createNewUserTest")
+//    public void loginTest() {
+//        Assert.assertTrue(true);
+//    }
+//
+//    @DataProvider(name = "inputValues")
+//    public Object[][] getInputValues(){
+//        return new Object[][] {
+//                {"john@gmail.com","validPass"},
+//                {"johngmail.com","validPass"},
+//                {"john@gmail.com","invalidPass"}
+//        };
+//    }
+//
+//    @Test(dataProvider = "inputValues")
+//    public void testLoginFun(String userName, String password){
+//        System.out.println(userName + " " + password);
+//    }
 
 }
